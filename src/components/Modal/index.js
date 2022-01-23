@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState } from 'react/cjs/react.development';
 
-const Modal = ({ onClose, currentPhoto}) => {
-    const {name, category, description, index} = currentPhoto;
-
+const Modal = ({ onClose, currentPhoto }) => {
+    const { name, category, description, index } = currentPhoto;
 
     return (
         // JSX
         <div className="modalBackdrop">
             <div className="modalContainer">
                 <h3 className="modalTitle">{name}</h3>
-                <img src={require(`../../assets/large/${category}/${index}.jpg`)} alt="current category" />
+                <img 
+                src={require(`../../assets/large/${category}/${index}.jpg`).default} 
+                alt="current category" />
                 <p>{description}</p>
                 <button onClick={onClose} type="button">
                     Close this modal
@@ -18,6 +18,6 @@ const Modal = ({ onClose, currentPhoto}) => {
             </div>
         </div>
     );
-}
+};
 
 export default Modal;
